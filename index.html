@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portföy</title>
+    <style>
+      *{
+        box-sizing:border-box;
+        padding:0;
+        margin:0;
+      }
+
+      html {
+        height: 100%;
+        background: 50% 50% no-repeat;
+      }
+
+      body{
+        background-image:url('bck.jpg');
+        background-repeat:no-repeat;
+      }
+
+      .nav-item{
+         text-decoration:none;
+         color:rgba(226, 232, 240, 0.8);
+         padding:8px;
+      }
+
+      .nav-item:hover{
+         background-color:rgba(56, 189, 248, 1);
+         color:white;
+      }
+
+      .container{
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:1000;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+        overflow:auto;
+        background-color:rgba(15, 23, 42, 0.75);
+      }
+
+      .container2, .container3{
+        padding:10px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:25px;
+        flex-wrap:wrap;
+      }
+
+      .profil{
+        width:100px;
+        height:100px;
+        border-radius:50%;
+        border:1px solid rgba(56, 189, 248, 0.4);
+        background-color:rgba(30, 41, 59, 0.85);
+        background-image:url('pp.jpg');
+        background-position:center;
+        background-size:cover;
+        transition:3s ease;
+        animation-name:slide2;
+        animation-duration:3s;
+      }
+
+      .profil:hover{
+        background-color:rgba(56, 189, 248, 0.4);
+        transform:scale(1.1);
+      }
+
+      .blocks{
+        padding:30px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:30px;
+        flex-wrap:wrap;
+      }
+
+      .block-item{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        color:rgba(248, 250, 252, 0.95);
+        box-shadow:4px 4px 4px rgba(2, 6, 23, 0.4);
+        width:100px;
+        height:100px;
+        background-color:rgba(255,255,255,0.15);
+        backdrop-filter:blur(12px);
+        border:none;
+        border-radius:8px;
+        padding:10px;
+        transition:2s ease;
+        cursor:pointer;
+      }
+
+      .block-item:hover, .bond:hover{
+         transform:scale(1.1);
+      }
+
+      .bond{
+        width:200px;
+        height:100px;
+        background-color:rgba(255,255,255,0.15);
+        backdrop-filter:blur(12px);
+        color:rgba(248, 250, 252, 0.95);
+        box-shadow:4px 4px 4px rgba(2, 6, 23, 0.4);
+        cursor:pointer;
+        transition:2s ease;
+        border-radius:9px;
+        border:none;
+      }
+
+      #gamejam{
+        padding:20px;
+        margin-top:40px;
+      }
+
+      #home{
+         margin-top:60px;
+      }
+
+      .container3{
+        gap:45px;
+      }
+
+      #iletisim{
+        display:flex;
+        margin-top:40px;
+        justify-content:center;
+        align-items:center;
+      }
+
+      .form-cap{
+        position:relative;
+        text-align:center;
+        width:200px;
+        height:240px;
+        background-color:rgba(15, 23, 42, 0.7);
+        border-radius:9px;
+        backdrop-filter:blur(4px);
+        border:none;
+        overflow:hidden;
+      }
+
+      #form1, #form2{
+        padding:20px;
+        width:100%;
+        position:absolute;
+        transition:0.5s ease;
+      }
+
+      .form-item{
+        width:80%;
+        margin-top:10px;
+        border-radius:9px;
+        background-color:rgba(30, 41, 59, 0.8);
+        color:rgba(148, 163, 184, 0.6);
+        height:30px;
+      }
+
+      .form-item:focus{
+         background-color:rgba(56, 189, 248, 0.8);
+      }
+
+      #btn-box{
+        padding:11px;
+      }
+
+      #form2{
+         left:200px;
+      }
+
+      #btn1, #btn2, .altbtn{
+        padding:6px;
+        border:none;
+        border-radius:8px;
+      }
+
+      .i-item{
+        margin-top:19px;
+        padding:8px;
+        text-decoration:none;
+        color:rgba(226, 232, 240, 0.9);
+      }
+
+      h1{
+        color:rgba(248, 250, 252, 0.95);
+        animation-name:slide;
+        animation-duration:3s;
+      }
+
+      h3{
+        color:rgba(148, 163, 184, 1);
+      }
+
+      .altbtn{
+        background-color:rgba(14, 165, 233, 0.85);
+      }
+
+      .altbtn:hover{
+        background-color:rgba(14, 165, 233, 0.85);
+      }
+
+
+      #oyun{
+	background-image:url('oyun.jpg');
+        background-position:center;
+        background-size:cover;
+      }
+
+      @keyframes slide{
+       from{
+         opacity:0;
+         transform:translateX(-20px);
+       }
+
+       to{
+         opacity:1;
+         transform:translateX(0);
+
+        }
+
+      }
+
+  
+      @keyframes slide2{
+       from{
+         opacity:0;
+         transform:translateX(20px);
+       }
+
+       to{
+         opacity:1;
+         transform:translateX(0);
+
+        }
+
+      }
+    </style>
+  </head>
+  <body>
+     <nav>
+         <div class='container'>
+            <a href='#home' class='nav-item'>HOME</a>
+            <a href='#gamejam' class='nav-item'>GAME-JAM</a>
+            <a href='#hackethon' class='nav-item'>HACKETHON</a>
+            <a href='#iletisim' class='nav-item'>İLETİŞİM</a>
+         </div>
+     </nav>
+     <section id='home'>
+         <div class='container2'>
+            <h1>Merhaba! Ben Eren</h1>
+            <div class='profil'></div>
+         </div>
+        <div class='blocks'>
+            <div class='block-item'>FRONTEND</div>
+            <div class='block-item'>UI/UX</div>
+        </div>
+     </section>
+     <section id='gamejam'>
+       <div class='container2'>
+         <h3>Magarajam 25 <br>
+            Tema:Birbirine bağlı<br>
+            Oyun:Cursed Bond
+         </h3>
+         <div class='bond' id='oyun'></div>
+       </div>
+     </section>
+     <section id='hackethon'>
+       <div class='container3'>
+         <h3>Fikrine Sahip Çık<br>
+            Patent Hackethon <br>
+            Kategori:Lise
+         </h3>
+         <div class='bond'></div>
+       </div>
+     </section>
+     <footer id='iletisim'>
+       <div class='form-cap'>
+          <div id='btn-box'>
+             <button id='btn1' class='altbtn'>İletişim</button>
+             <button id='btn2' class='altbtn'>S.medya</button>
+          </div>
+          <form id='form1'>
+               <input type='email' class='form-item' placeholder='E-mail' required>
+               <br>
+               <input type='password' class='form-item' placeholder='Şifre:' required>
+               <br>
+               <textarea class='form-item' placeholder='mesaj' required></textarea>
+               <br>
+               <button class='altbtn' type='submit' >Gönder</button>
+               <button class='altbtn' type='reset' >Sıfırla</button>
+          </form>
+          <div id='form2'>
+              <a href='https://meren-elgin.itch.io/' class='i-item'>İTCH.İO</a>
+              <br>
+              <a href='https://github.com/Erenelgin' class='i-item'>GİTHUB</a>
+              <br>
+              <a href='https://www.instagram.com/m.eren_elgin/?__d=11' class='i-item'>İNSTAGRAM</a>
+          </div>
+       </div>
+     </footer>
+     <script>
+       let form1 = document.getElementById('form1');
+       let form2 = document.getElementById('form2');
+       let b1 = document.getElementById('btn1');
+       let b2 = document.getElementById('btn2');
+
+       b2.addEventListener('click', function(){
+          form1.style.left="-230px";
+          form2.style.left="0px";
+       });
+
+       b1.addEventListener('click', function(){
+          form1.style.left="0px";
+          form2.style.left="230px";
+       });
+     </script>
+  </body>
+</html>
